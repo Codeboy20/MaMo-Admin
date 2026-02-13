@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="admin-header">
+    <h1>Blog Admin Panel</h1>
+    <button id="logoutBtn">LOGOUT</button>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="admin-layout">
+
+    <!-- LEFT : EXISTING BLOGS -->
+    <div class="admin-left">
+
+      <h3 class="panel-title">Existing Blogs</h3>
+
+      <!-- firestore blogs will appear here later -->
+      <div id="blogList" class="blog-list-panel">
+
+        <!-- placeholder row (will be replaced dynamically later) -->
+        <div class="admin-blog-row">
+          <span>Blog title will appear here</span>
+          <div class="admin-blog-actions">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT : ADD / EDIT FORM -->
+    <div class="admin-right">
+
+      <h3 class="panel-title">Add / Edit Blog</h3>
+
+      <!-- hidden field for edit mode -->
+      <input type="hidden" id="editingBlogId">
+
+      <form id="blogForm">
+
+        <input
+          type="text"
+          id="title"
+          placeholder="Blog title"
+          required
+        >
+
+        <input
+          type="text"
+          id="image"
+          placeholder="Image URL"
+          required
+        >
+
+        <textarea
+          id="content"
+          placeholder="Blog content"
+          rows="8"
+          required
+        ></textarea>
+
+        <button type="submit" id="saveBtn">
+          SAVE BLOG
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- IMPORTANT : must be module (for Firebase imports) -->
+<script type="module" src="admin-dashboard.js"></script>
+
+</body>
+</html>
